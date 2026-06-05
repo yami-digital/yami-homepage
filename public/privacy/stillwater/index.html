@@ -1,0 +1,428 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — StillWater</title>
+  <meta name="description" content="StillWater privacy policy. Your data stays on your device." />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #070710;
+      --bg-card: #13132a;
+      --border: #252545;
+      --accent: #6366f1;
+      --accent-bright: #a5b4fc;
+      --cyan: #22d3ee;
+      --text-primary: #f1f5f9;
+      --text-secondary: #94a3b8;
+      --text-muted: #475569;
+      --green: #4ade80;
+      --red: #f87171;
+      --font-mono: 'JetBrains Mono', 'Fira Code', ui-monospace, monospace;
+      --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: var(--accent-bright); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── nav ── */
+    .nav {
+      position: sticky;
+      top: 0;
+      background: rgba(7, 7, 16, 0.85);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 40px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 10;
+    }
+    .nav-brand {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .nav-brand .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
+    .nav-back {
+      font-size: 13px;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      transition: color 0.15s;
+    }
+    .nav-back:hover { color: var(--text-primary); text-decoration: none; }
+
+    /* ── hero ── */
+    .hero {
+      border-bottom: 1px solid var(--border);
+      padding: 64px 40px 56px;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+    .hero-label {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+    .hero h1 {
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+    .hero h1 span {
+      background: linear-gradient(90deg, var(--accent-bright), var(--cyan));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-meta {
+      font-size: 13px;
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+      margin-top: 20px;
+    }
+
+    /* ── tldr card ── */
+    .tldr {
+      max-width: 760px;
+      margin: 40px auto 0;
+      padding: 0 40px;
+    }
+    .tldr-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: 10px;
+      padding: 24px 28px;
+    }
+    .tldr-card .label {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+    .tldr-card ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .tldr-card li {
+      font-size: 14px;
+      color: var(--text-secondary);
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    .tldr-card li .icon { flex-shrink: 0; margin-top: 2px; }
+
+    /* ── content ── */
+    .content {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 48px 40px 100px;
+      display: flex;
+      flex-direction: column;
+      gap: 48px;
+    }
+
+    .section-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .section-title .num {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--accent);
+      background: rgba(99,102,241,0.12);
+      border: 1px solid rgba(99,102,241,0.25);
+      border-radius: 4px;
+      padding: 2px 7px;
+    }
+
+    p { color: var(--text-secondary); font-size: 15px; margin-bottom: 12px; }
+    p:last-child { margin-bottom: 0; }
+
+    ul.policy-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 4px;
+    }
+    ul.policy-list li {
+      font-size: 14px;
+      color: var(--text-secondary);
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding-left: 4px;
+    }
+    ul.policy-list li::before {
+      content: '—';
+      color: var(--text-muted);
+      flex-shrink: 0;
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+    .tag {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      padding: 4px 10px;
+      border-radius: 5px;
+      border: 1px solid;
+    }
+    .tag-green  { color: var(--green); border-color: rgba(74,222,128,0.25); background: rgba(74,222,128,0.06); }
+    .tag-red    { color: var(--red);   border-color: rgba(248,113,113,0.25); background: rgba(248,113,113,0.06); }
+    .tag-muted  { color: var(--text-muted); border-color: var(--border); background: var(--bg-card); }
+
+    .info-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 18px 20px;
+      margin-top: 12px;
+      font-size: 14px;
+      color: var(--text-secondary);
+    }
+    .info-box strong { color: var(--text-primary); }
+
+    /* ── divider ── */
+    .divider { height: 1px; background: var(--border); }
+
+    /* ── footer ── */
+    .footer {
+      border-top: 1px solid var(--border);
+      padding: 40px;
+      max-width: 760px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .footer-text { font-size: 13px; color: var(--text-muted); }
+    .footer-contact { font-size: 13px; color: var(--text-secondary); font-family: var(--font-mono); }
+
+    @media (max-width: 600px) {
+      .nav  { padding: 0 20px; }
+      .hero { padding: 48px 20px 40px; }
+      .tldr { padding: 0 20px; }
+      .content { padding: 40px 20px 80px; }
+      .footer { padding: 32px 20px; flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav class="nav">
+    <div class="nav-brand">
+      <div class="dot"></div>
+      YAMI Digital Lab
+    </div>
+    <a class="nav-back" href="https://www.yamidigital.com">
+      ← yamidigital.com
+    </a>
+  </nav>
+
+  <!-- Hero -->
+  <div class="hero">
+    <p class="hero-label">// privacy policy</p>
+    <h1>StillWater<br><span>keeps your data yours.</span></h1>
+    <p style="color: var(--text-secondary); font-size: 15px; margin-top: 16px;">
+      StillWater is built on a simple principle: what you write is private. No servers, no accounts, no tracking. Your reflections live on your device and nowhere else.
+    </p>
+    <p class="hero-meta">Last updated: June 4, 2026 &nbsp;·&nbsp; Applies to: StillWater iOS app</p>
+  </div>
+
+  <!-- TL;DR -->
+  <div class="tldr">
+    <div class="tldr-card">
+      <div class="label">TL;DR</div>
+      <ul>
+        <li><span class="icon">✅</span> Your journal entries and emotion logs are stored locally on your device only</li>
+        <li><span class="icon">✅</span> Face ID is used only for local app lock — biometric data never leaves your device</li>
+        <li><span class="icon">✅</span> No accounts, no backend, no analytics, no ads</li>
+        <li><span class="icon">✅</span> No third-party SDKs — zero external data sharing</li>
+        <li><span class="icon">✅</span> Future iCloud sync routes through your own Apple account — we never see it</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Content -->
+  <div class="content">
+
+    <!-- 1. What we collect -->
+    <section>
+      <h2 class="section-title"><span class="num">01</span> What StillWater Stores</h2>
+      <p>StillWater stores the following data <strong>locally on your device</strong>, using iOS secure storage:</p>
+      <ul class="policy-list">
+        <li>Journal entries you write</li>
+        <li>Emotion logs and mood check-ins</li>
+        <li>App preferences and settings (e.g. theme, lock preferences)</li>
+      </ul>
+      <div class="tag-row">
+        <span class="tag tag-green">stored on-device</span>
+        <span class="tag tag-green">never transmitted</span>
+        <span class="tag tag-green">no cloud by default</span>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- 2. What we don't collect -->
+    <section>
+      <h2 class="section-title"><span class="num">02</span> What We Don't Collect</h2>
+      <p>We collect nothing. There is no backend, no database, and no server that receives your data. Specifically, StillWater has:</p>
+      <ul class="policy-list">
+        <li>No user accounts or sign-in</li>
+        <li>No analytics or usage tracking</li>
+        <li>No crash reporting sent to us</li>
+        <li>No advertising networks</li>
+        <li>No third-party SDKs of any kind</li>
+        <li>No data brokers, no data selling, ever</li>
+      </ul>
+      <div class="tag-row">
+        <span class="tag tag-red">no analytics</span>
+        <span class="tag tag-red">no ads</span>
+        <span class="tag tag-red">no accounts</span>
+        <span class="tag tag-red">no backend</span>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- 3. Face ID -->
+    <section>
+      <h2 class="section-title"><span class="num">03</span> Face ID &amp; Biometric Lock</h2>
+      <p>
+        StillWater offers an optional Face ID / Touch ID lock to keep your entries private on a shared device.
+        Biometric authentication is handled entirely by iOS — StillWater never accesses, processes, or stores your
+        biometric data. It is never transmitted anywhere.
+      </p>
+      <div class="info-box">
+        <strong>How it works:</strong> When you enable the app lock, iOS checks your biometric against its own secure enclave and returns only a pass/fail result to StillWater. Your Face ID or fingerprint data never enters the app.
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- 4. iCloud sync -->
+    <section>
+      <h2 class="section-title"><span class="num">04</span> iCloud Sync <span style="font-size:12px; color: var(--text-muted); font-weight:400; font-family: var(--font-mono);">(coming soon)</span></h2>
+      <p>
+        A future update will offer optional iCloud sync so your entries are available across your Apple devices.
+        This feature is opt-in and works as follows:
+      </p>
+      <ul class="policy-list">
+        <li>Data syncs through <strong>your own Apple iCloud account</strong></li>
+        <li>YAMI Digital Lab has no access to your iCloud data at any point</li>
+        <li>Apple's <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noreferrer">Privacy Policy</a> governs how iCloud stores and protects your data</li>
+        <li>You can disable iCloud sync at any time from <strong>iOS Settings → [Your Name] → iCloud → StillWater</strong></li>
+      </ul>
+      <div class="tag-row">
+        <span class="tag tag-muted">opt-in only</span>
+        <span class="tag tag-muted">your iCloud account</span>
+        <span class="tag tag-muted">we never see it</span>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- 5. Third-party -->
+    <section>
+      <h2 class="section-title"><span class="num">05</span> Third-Party Services</h2>
+      <p>
+        StillWater contains <strong>no third-party SDKs, no advertising networks, and no analytics services</strong>.
+        The only external dependency is Apple's own iOS frameworks, which are governed by Apple's privacy policy.
+      </p>
+      <p>
+        We do not sell, rent, share, or monetize your data in any form — now or in the future.
+      </p>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- 6. Data deletion -->
+    <section>
+      <h2 class="section-title"><span class="num">06</span> Deleting Your Data</h2>
+      <p>Since all data is stored locally, you have full control:</p>
+      <ul class="policy-list">
+        <li><strong>Delete individual entries</strong> — from within the app at any time</li>
+        <li><strong>Delete everything</strong> — uninstall StillWater from your device</li>
+        <li><strong>Delete iCloud data</strong> (once sync is available) — iOS Settings → [Your Name] → iCloud → Manage Storage → StillWater</li>
+      </ul>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- 7. Changes -->
+    <section>
+      <h2 class="section-title"><span class="num">07</span> Changes to This Policy</h2>
+      <p>
+        If we update this policy, we'll post the new version here with an updated date. For significant changes
+        we'll include a notice in the app. Continuing to use StillWater after a change constitutes acceptance
+        of the updated policy.
+      </p>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- 8. Contact -->
+    <section>
+      <h2 class="section-title"><span class="num">08</span> Contact</h2>
+      <p>Questions or concerns about this privacy policy?</p>
+      <div class="info-box">
+        <strong>YAMI Digital Lab</strong><br>
+        <a href="mailto:dev@yamidigital.com">dev@yamidigital.com</a>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <span class="footer-text">© 2026 YAMI Digital Lab · StillWater Privacy Policy</span>
+    <span class="footer-contact">dev@yamidigital.com</span>
+  </footer>
+
+</body>
+</html>
