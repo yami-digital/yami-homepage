@@ -1,0 +1,443 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — Wowzy</title>
+  <meta name="description" content="Wowzy privacy policy. Your family's plan stays on your device — nothing is collected, from parents or children." />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #070710;
+      --bg-card: #13132a;
+      --border: #252545;
+      --accent: #6366f1;
+      --accent-bright: #a5b4fc;
+      --cyan: #22d3ee;
+      --text-primary: #f1f5f9;
+      --text-secondary: #94a3b8;
+      --text-muted: #475569;
+      --green: #4ade80;
+      --red: #f87171;
+      --font-mono: 'JetBrains Mono', 'Fira Code', ui-monospace, monospace;
+      --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: var(--accent-bright); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      background: rgba(7, 7, 16, 0.85);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 40px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 10;
+    }
+    .nav-brand {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .nav-brand .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
+    .nav-back {
+      font-size: 13px;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      transition: color 0.15s;
+    }
+    .nav-back:hover { color: var(--text-primary); text-decoration: none; }
+
+    .hero {
+      border-bottom: 1px solid var(--border);
+      padding: 64px 40px 56px;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+    .hero-label {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+    .hero h1 {
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+    .hero h1 span {
+      background: linear-gradient(90deg, var(--accent-bright), var(--cyan));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-meta {
+      font-size: 13px;
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+      margin-top: 20px;
+    }
+
+    .tldr {
+      max-width: 760px;
+      margin: 40px auto 0;
+      padding: 0 40px;
+    }
+    .tldr-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: 10px;
+      padding: 24px 28px;
+    }
+    .tldr-card .label {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+    .tldr-card ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .tldr-card li {
+      font-size: 14px;
+      color: var(--text-secondary);
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    .tldr-card li .icon { flex-shrink: 0; margin-top: 2px; }
+
+    .content {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 48px 40px 100px;
+      display: flex;
+      flex-direction: column;
+      gap: 48px;
+    }
+
+    .section-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .section-title .num {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--accent);
+      background: rgba(99,102,241,0.12);
+      border: 1px solid rgba(99,102,241,0.25);
+      border-radius: 4px;
+      padding: 2px 7px;
+    }
+
+    p { color: var(--text-secondary); font-size: 15px; margin-bottom: 12px; }
+    p:last-child { margin-bottom: 0; }
+
+    ul.policy-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 4px;
+    }
+    ul.policy-list li {
+      font-size: 14px;
+      color: var(--text-secondary);
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding-left: 4px;
+    }
+    ul.policy-list li::before {
+      content: '—';
+      color: var(--text-muted);
+      flex-shrink: 0;
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+    .tag {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      padding: 4px 10px;
+      border-radius: 5px;
+      border: 1px solid;
+    }
+    .tag-green  { color: var(--green); border-color: rgba(74,222,128,0.25); background: rgba(74,222,128,0.06); }
+    .tag-red    { color: var(--red);   border-color: rgba(248,113,113,0.25); background: rgba(248,113,113,0.06); }
+    .tag-muted  { color: var(--text-muted); border-color: var(--border); background: var(--bg-card); }
+
+    .info-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 18px 20px;
+      margin-top: 12px;
+      font-size: 14px;
+      color: var(--text-secondary);
+    }
+    .info-box strong { color: var(--text-primary); }
+
+    .divider { height: 1px; background: var(--border); }
+
+    .footer {
+      border-top: 1px solid var(--border);
+      padding: 40px;
+      max-width: 760px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .footer-text { font-size: 13px; color: var(--text-muted); }
+    .footer-contact { font-size: 13px; color: var(--text-secondary); font-family: var(--font-mono); }
+
+    @media (max-width: 600px) {
+      .nav  { padding: 0 20px; }
+      .hero { padding: 48px 20px 40px; }
+      .tldr { padding: 0 20px; }
+      .content { padding: 40px 20px 80px; }
+      .footer { padding: 32px 20px; flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-brand">
+      <div class="dot"></div>
+      YAMI Digital Lab
+    </div>
+    <a class="nav-back" href="https://www.yamidigital.com">
+      ← yamidigital.com
+    </a>
+  </nav>
+
+  <div class="hero">
+    <p class="hero-label">// privacy policy</p>
+    <h1>Wowzy<br><span>keeps your family's plan at home.</span></h1>
+    <p style="color: var(--text-secondary); font-size: 15px; margin-top: 16px;">
+      Wowzy helps a parent and their kids agree on a family plan: points for wows, a reward shop,
+      and a calm fresh start after a slip. Everything lives on the parent's device. There are no
+      accounts, no servers, and no network connection — we never receive any of it.
+    </p>
+    <p class="hero-meta">Last updated: October 23, 2026 &nbsp;·&nbsp; Applies to: Wowzy iOS app</p>
+  </div>
+
+  <div class="tldr">
+    <div class="tldr-card">
+      <div class="label">TL;DR</div>
+      <ul>
+        <li><span class="icon">✅</span> Your family plan and activity log are stored on your device only, encrypted by iOS</li>
+        <li><span class="icon">✅</span> Wowzy makes zero network requests — no accounts, no backend, no analytics, no ads</li>
+        <li><span class="icon">✅</span> No third-party SDKs — nothing is shared with anyone</li>
+        <li><span class="icon">✅</span> Nothing is collected from anyone, including children</li>
+        <li><span class="icon">✅</span> The parent owns and controls all data; deleting the app deletes it</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="content">
+
+    <!-- 1. What we store -->
+    <section>
+      <h2 class="section-title"><span class="num">01</span> What Wowzy Stores</h2>
+      <p>Wowzy stores the following <strong>locally on your device only</strong>, in the app's private storage:</p>
+      <ul class="policy-list">
+        <li><strong>Your family plan</strong> — the lists and items you set up (wows, rewards, don'ts, give-ups), their points and rules, and plan settings such as the reset period and time zone, including earlier versions of the plan</li>
+        <li><strong>The activity log</strong> — each wow logged, reward redeemed, don't, give-up, attempt, undo, and fresh start, with its date and time</li>
+        <li><strong>A setup marker</strong> — whether first-launch setup has been finished</li>
+      </ul>
+      <p style="margin-top: 12px;">
+        That's the entire list. Names of lists and items are whatever your family types in; Wowzy
+        doesn't ask for anyone's name, age, photo, contact details, or location. The files are
+        protected with iOS Data Protection (encrypted at rest, unreadable after a restart until the
+        device is first unlocked).
+      </p>
+      <div class="tag-row">
+        <span class="tag tag-green">stored on-device</span>
+        <span class="tag tag-green">never transmitted</span>
+        <span class="tag tag-green">encrypted by iOS</span>
+      </div>
+      <div class="info-box" style="margin-top: 16px;">
+        <strong>Device backups:</strong> Like other app data, Wowzy's data is included in your own iPhone backup (iCloud Backup or a computer backup) if you have backups turned on. Those backups belong to your Apple account and are governed by <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noreferrer">Apple's Privacy Policy</a> — YAMI Digital Lab has no access to them.
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- 2. What we don't collect -->
+    <section>
+      <h2 class="section-title"><span class="num">02</span> What We Don't Collect</h2>
+      <p>We collect nothing. Wowzy makes <strong>no network requests at all</strong>, and there is no backend, database, or server that could receive your data. Specifically, Wowzy has:</p>
+      <ul class="policy-list">
+        <li>No user accounts or sign-in</li>
+        <li>No analytics or usage tracking</li>
+        <li>No advertising, and no advertising identifier (IDFA) or cross-app tracking</li>
+        <li>No third-party SDKs of any kind</li>
+        <li>No camera, microphone, contacts, photos, or location access</li>
+        <li>No links out of the app and no in-app purchases</li>
+        <li>No data brokers, no data selling, ever</li>
+      </ul>
+      <div class="tag-row">
+        <span class="tag tag-red">no analytics</span>
+        <span class="tag tag-red">no ads</span>
+        <span class="tag tag-red">no accounts</span>
+        <span class="tag tag-red">no network access</span>
+      </div>
+      <div class="info-box" style="margin-top: 16px;">
+        <strong>Apple crash diagnostics:</strong> When Wowzy is distributed via TestFlight or the App Store, Apple may provide anonymized crash logs through App Store Connect if you have chosen to share analytics with app developers in iOS Settings. These logs contain device type, OS version, and a stack trace — they are not linked to any personal identity and are governed by <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noreferrer">Apple's Privacy Policy</a>.
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- 3. Children's privacy -->
+    <section>
+      <h2 class="section-title"><span class="num">03</span> Children's Privacy</h2>
+      <p>
+        Wowzy is a parent's tool that families use together with their children, typically ages 6–12.
+        The app lives on the parent's device, and children use it with a parent, under the parent's
+        supervision — for example, to see their points or pick a reward.
+      </p>
+      <p>
+        Wowzy does <strong>not collect any personal information from anyone, including children</strong>.
+        There is no sign-up, no profile, and no way for information entered in the app to leave the
+        device, so YAMI Digital Lab never receives a child's (or a parent's) personal information.
+        Because no personal information is collected, there is no data collection under COPPA (the
+        Children's Online Privacy Protection Act) or similar children's privacy laws that would
+        require parental consent.
+      </p>
+      <ul class="policy-list">
+        <li><strong>Parents control all data.</strong> Everything Wowzy stores is on the parent's device and can be viewed and changed there.</li>
+        <li><strong>Parents can delete it at any time</strong> by deleting the app (see below).</li>
+        <li>If we ever add a feature that would send data off the device (such as syncing between parents), we will update this policy first and ask for a parent's permission in the app before anything is shared.</li>
+      </ul>
+      <div class="info-box">
+        <strong>Questions about your child's privacy?</strong> Email us at
+        <a href="mailto:dev@yamidigital.com">dev@yamidigital.com</a>.
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- 4. Third-party -->
+    <section>
+      <h2 class="section-title"><span class="num">04</span> Third-Party Services</h2>
+      <p>
+        Wowzy contains <strong>no third-party SDKs, no advertising networks, and no analytics
+        services</strong>. The only external dependency is Apple's own iOS frameworks, which are
+        governed by Apple's privacy policy.
+      </p>
+      <p>
+        We do not sell, rent, share, or monetize your data in any form — now or in the future.
+      </p>
+      <div class="info-box">
+        <strong>California residents (CCPA):</strong> We do not sell, and have never sold, personal information as defined under the California Consumer Privacy Act (CCPA). There is no personal information to sell — none is collected.
+      </div>
+      <p style="margin-top: 12px; font-size: 13px; color: var(--text-muted);">
+        Note: Apple provides aggregate, non-personal install and download metrics in App Store Connect (e.g. total downloads by region). This data is anonymized, not linked to individuals, and is governed by Apple's Privacy Policy.
+      </p>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- 5. Data deletion -->
+    <section>
+      <h2 class="section-title"><span class="num">05</span> Deleting Your Data</h2>
+      <p>Since all data is stored on your device, you have full control:</p>
+      <ul class="policy-list">
+        <li><strong>Change the plan</strong> — edit or remove lists, items, and rules in the app at any time</li>
+        <li><strong>Undo an entry</strong> — undo or correct logged activity from History</li>
+        <li><strong>Delete everything</strong> — delete Wowzy from your device; this removes the plan and the whole activity log</li>
+        <li><strong>Backups</strong> — copies in your own iPhone backups can be managed in iOS Settings → [Your Name] → iCloud → Manage Account Storage → Backups</li>
+      </ul>
+      <p style="margin-top: 12px;">There's no account to delete, because none exists.</p>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- 6. Changes -->
+    <section>
+      <h2 class="section-title"><span class="num">06</span> Changes to This Policy</h2>
+      <p>
+        If we update this policy, we'll post the new version here with an updated date. For significant changes
+        we'll include a notice in the app. Continuing to use Wowzy after a change constitutes acceptance
+        of the updated policy.
+      </p>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- 7. Governing Law -->
+    <section>
+      <h2 class="section-title"><span class="num">07</span> Governing Law</h2>
+      <p>
+        This Privacy Policy is governed by the laws of the State of Georgia, United States, without regard to its conflict of law principles. Any disputes arising from this policy shall be resolved in the courts of Georgia.
+      </p>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- 8. Contact -->
+    <section>
+      <h2 class="section-title"><span class="num">08</span> Contact</h2>
+      <p>Questions or concerns about this privacy policy?</p>
+      <div class="info-box">
+        <strong>YAMI Digital Lab LLC</strong><br>
+        <a href="mailto:dev@yamidigital.com">dev@yamidigital.com</a>
+      </div>
+    </section>
+
+  </div>
+
+  <footer class="footer">
+    <span class="footer-text">© 2026 YAMI Digital Lab LLC · Wowzy Privacy Policy</span>
+    <span class="footer-contact">dev@yamidigital.com</span>
+  </footer>
+
+</body>
+</html>
