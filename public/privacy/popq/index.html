@@ -1,0 +1,431 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — Pop Q</title>
+  <meta name="description" content="Pop Q privacy policy. No accounts, no network calls, nothing collected." />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #070710;
+      --bg-card: #13132a;
+      --border: #252545;
+      --accent: #6366f1;
+      --accent-bright: #a5b4fc;
+      --cyan: #22d3ee;
+      --text-primary: #f1f5f9;
+      --text-secondary: #94a3b8;
+      --text-muted: #475569;
+      --green: #4ade80;
+      --red: #f87171;
+      --font-mono: 'JetBrains Mono', 'Fira Code', ui-monospace, monospace;
+      --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: var(--accent-bright); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      background: rgba(7, 7, 16, 0.85);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 40px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 10;
+    }
+    .nav-brand {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .nav-brand .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
+    .nav-back {
+      font-size: 13px;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      transition: color 0.15s;
+    }
+    .nav-back:hover { color: var(--text-primary); text-decoration: none; }
+
+    .hero {
+      border-bottom: 1px solid var(--border);
+      padding: 64px 40px 56px;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+    .hero-label {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+    .hero h1 {
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+    .hero h1 span {
+      background: linear-gradient(90deg, var(--accent-bright), var(--cyan));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-meta {
+      font-size: 13px;
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+      margin-top: 20px;
+    }
+
+    .tldr {
+      max-width: 760px;
+      margin: 40px auto 0;
+      padding: 0 40px;
+    }
+    .tldr-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: 10px;
+      padding: 24px 28px;
+    }
+    .tldr-card .label {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+    .tldr-card ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .tldr-card li {
+      font-size: 14px;
+      color: var(--text-secondary);
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    .tldr-card li .icon { flex-shrink: 0; margin-top: 2px; }
+
+    .content {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 48px 40px 100px;
+      display: flex;
+      flex-direction: column;
+      gap: 48px;
+    }
+
+    .section-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .section-title .num {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--accent);
+      background: rgba(99,102,241,0.12);
+      border: 1px solid rgba(99,102,241,0.25);
+      border-radius: 4px;
+      padding: 2px 7px;
+    }
+
+    p { color: var(--text-secondary); font-size: 15px; margin-bottom: 12px; }
+    p:last-child { margin-bottom: 0; }
+
+    ul.policy-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 4px;
+    }
+    ul.policy-list li {
+      font-size: 14px;
+      color: var(--text-secondary);
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding-left: 4px;
+    }
+    ul.policy-list li::before {
+      content: '—';
+      color: var(--text-muted);
+      flex-shrink: 0;
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+    .tag {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      padding: 4px 10px;
+      border-radius: 5px;
+      border: 1px solid;
+    }
+    .tag-green  { color: var(--green); border-color: rgba(74,222,128,0.25); background: rgba(74,222,128,0.06); }
+    .tag-red    { color: var(--red);   border-color: rgba(248,113,113,0.25); background: rgba(248,113,113,0.06); }
+    .tag-muted  { color: var(--text-muted); border-color: var(--border); background: var(--bg-card); }
+
+    .info-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 18px 20px;
+      margin-top: 12px;
+      font-size: 14px;
+      color: var(--text-secondary);
+    }
+    .info-box strong { color: var(--text-primary); }
+
+    .divider { height: 1px; background: var(--border); }
+
+    .footer {
+      border-top: 1px solid var(--border);
+      padding: 40px;
+      max-width: 760px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .footer-text { font-size: 13px; color: var(--text-muted); }
+    .footer-contact { font-size: 13px; color: var(--text-secondary); font-family: var(--font-mono); }
+
+    @media (max-width: 600px) {
+      .nav  { padding: 0 20px; }
+      .hero { padding: 48px 20px 40px; }
+      .tldr { padding: 0 20px; }
+      .content { padding: 40px 20px 80px; }
+      .footer { padding: 32px 20px; flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-brand">
+      <div class="dot"></div>
+      YAMI Digital Lab
+    </div>
+    <a class="nav-back" href="https://www.yamidigital.com">
+      ← yamidigital.com
+    </a>
+  </nav>
+
+  <div class="hero">
+    <p class="hero-label">// privacy policy</p>
+    <h1>Pop Q<br><span>collects nothing to begin with.</span></h1>
+    <p style="color: var(--text-secondary); font-size: 15px; margin-top: 16px;">
+      Pop Q is a set of question cards a parent reads aloud to their kid — there's no login, no
+      network connection, and nothing for a child to type, record, or submit. There's almost
+      nothing here to have a policy about, but here it is in full anyway.
+    </p>
+    <p class="hero-meta">Last updated: October 23, 2026 &nbsp;·&nbsp; Applies to: Pop Q iOS app</p>
+  </div>
+
+  <div class="tldr">
+    <div class="tldr-card">
+      <div class="label">TL;DR</div>
+      <ul>
+        <li><span class="icon">✅</span> Pop Q makes zero network requests — the app is fully offline, always</li>
+        <li><span class="icon">✅</span> The only things stored are an age-band preference and a short list of recently-shown question IDs, both on your device only</li>
+        <li><span class="icon">✅</span> No accounts, no backend, no analytics, no ads, no third-party SDKs</li>
+        <li><span class="icon">✅</span> No text field, microphone, or camera anywhere in the app — a child cannot type, speak into, or submit anything to Pop Q</li>
+        <li><span class="icon">✅</span> Built for ages 3–12, used together with a parent or guardian who holds the device</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="content">
+
+    <!-- 1. What we store -->
+    <section>
+      <h2 class="section-title"><span class="num">01</span> What Pop Q Stores</h2>
+      <p>Pop Q stores exactly two things, <strong>locally on your device only</strong>, using standard iOS app storage:</p>
+      <ul class="policy-list">
+        <li>Which age band is selected (ages 3–5, 6–9, or 10–12) — so questions match who's playing</li>
+        <li>A short rolling list of recently-shown question IDs — so the same question doesn't repeat right away</li>
+      </ul>
+      <p style="margin-top: 12px;">
+        That's the entire list. Pop Q has no text field, chat box, voice input, or any other way for
+        a child (or anyone) to type, speak, or submit content into the app — the questions are
+        pre-written and built into the app itself; nothing about what's said out loud in response
+        is ever captured, recorded, or stored by Pop Q.
+      </p>
+      <div class="tag-row">
+        <span class="tag tag-green">stored on-device</span>
+        <span class="tag tag-green">never transmitted</span>
+        <span class="tag tag-green">no conversation content stored</span>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- 2. What we don't collect -->
+    <section>
+      <h2 class="section-title"><span class="num">02</span> What We Don't Collect</h2>
+      <p>Pop Q makes <strong>no network requests at all</strong> — not at launch, not in the background, ever. There is no backend, no database, and no server that could receive your data even if the app wanted to send it. Specifically, Pop Q has:</p>
+      <ul class="policy-list">
+        <li>No user accounts or sign-in</li>
+        <li>No analytics or usage tracking</li>
+        <li>No advertising networks</li>
+        <li>No third-party SDKs of any kind</li>
+        <li>No microphone, camera, or location access</li>
+        <li>No data brokers, no data selling, ever</li>
+      </ul>
+      <div class="tag-row">
+        <span class="tag tag-red">no analytics</span>
+        <span class="tag tag-red">no ads</span>
+        <span class="tag tag-red">no accounts</span>
+        <span class="tag tag-red">no network access</span>
+      </div>
+      <div class="info-box" style="margin-top: 16px;">
+        <strong>Apple crash diagnostics:</strong> When Pop Q is distributed via TestFlight or the App Store, Apple may provide anonymized crash logs through App Store Connect. These logs contain device type, OS version, and a stack trace — they are not linked to any personal identity and are governed by <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noreferrer">Apple's Privacy Policy</a>.
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- 3. Children's privacy -->
+    <section>
+      <h2 class="section-title"><span class="num">03</span> Children's Privacy</h2>
+      <p>
+        Pop Q is designed for children ages 3–12, used together with a parent or guardian who holds
+        the device and asks the questions out loud — the child doesn't operate the app directly.
+      </p>
+      <p>
+        Pop Q does not collect any personal information from a child, or from anyone. There's no
+        sign-up, no text field for a child to type into, and no microphone or camera access — there
+        is simply no mechanism in the app through which a child's personal information could be
+        collected, with or without a parent's involvement. Because nothing is collected, there is
+        nothing a parent needs to consent to under COPPA (the Children's Online Privacy Protection
+        Act) or similar children's privacy laws — the app has no data-collection mechanism for
+        those laws to apply to in the first place.
+      </p>
+      <div class="info-box">
+        <strong>If you have questions</strong> about how Pop Q handles your child's privacy beyond
+        what's written here, reach out any time — see Contact below.
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- 4. Third-party -->
+    <section>
+      <h2 class="section-title"><span class="num">04</span> Third-Party Services</h2>
+      <p>
+        Pop Q contains <strong>no third-party SDKs, no advertising networks, and no analytics
+        services</strong>. The only external dependency is Apple's own iOS frameworks, which are
+        governed by Apple's privacy policy.
+      </p>
+      <p>
+        We do not sell, rent, share, or monetize your data in any form — now or in the future.
+      </p>
+      <div class="info-box">
+        <strong>California residents (CCPA):</strong> We do not sell, and have never sold, personal information as defined under the California Consumer Privacy Act (CCPA). There is no personal information to sell — none is collected.
+      </div>
+      <p style="margin-top: 12px; font-size: 13px; color: var(--text-muted);">
+        Note: Apple provides aggregate, non-personal install and download metrics in App Store Connect (e.g. total downloads by region). This data is anonymized, not linked to individuals, and is governed by Apple's Privacy Policy.
+      </p>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- 5. Data deletion -->
+    <section>
+      <h2 class="section-title"><span class="num">05</span> Deleting Your Data</h2>
+      <p>Since the only data Pop Q stores lives on your device, you have full control:</p>
+      <ul class="policy-list">
+        <li><strong>Reset the age band or shown-question history</strong> — not currently exposed as an in-app option; uninstalling clears it</li>
+        <li><strong>Delete everything</strong> — uninstall Pop Q from your device</li>
+      </ul>
+      <p style="margin-top: 12px;">There's no account to delete, because none exists.</p>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- 6. Changes -->
+    <section>
+      <h2 class="section-title"><span class="num">06</span> Changes to This Policy</h2>
+      <p>
+        If we update this policy, we'll post the new version here with an updated date. For significant changes
+        we'll include a notice in the app. Continuing to use Pop Q after a change constitutes acceptance
+        of the updated policy.
+      </p>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- 7. Governing Law -->
+    <section>
+      <h2 class="section-title"><span class="num">07</span> Governing Law</h2>
+      <p>
+        This Privacy Policy is governed by the laws of the State of Georgia, United States, without regard to its conflict of law principles. Any disputes arising from this policy shall be resolved in the courts of Georgia.
+      </p>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- 8. Contact -->
+    <section>
+      <h2 class="section-title"><span class="num">08</span> Contact</h2>
+      <p>Questions or concerns about this privacy policy?</p>
+      <div class="info-box">
+        <strong>YAMI Digital Lab LLC</strong><br>
+        <a href="mailto:dev@yamidigital.com">dev@yamidigital.com</a>
+      </div>
+    </section>
+
+  </div>
+
+  <footer class="footer">
+    <span class="footer-text">© 2026 YAMI Digital Lab LLC · Pop Q Privacy Policy</span>
+    <span class="footer-contact">dev@yamidigital.com</span>
+  </footer>
+
+</body>
+</html>
