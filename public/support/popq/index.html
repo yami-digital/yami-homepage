@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Support — Pop Q</title>
+  <meta name="description" content="Pop Q support. Getting started, FAQ, and how to reach us." />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #070710;
+      --bg-card: #13132a;
+      --border: #252545;
+      --accent: #6366f1;
+      --accent-bright: #a5b4fc;
+      --cyan: #22d3ee;
+      --text-primary: #f1f5f9;
+      --text-secondary: #94a3b8;
+      --text-muted: #475569;
+      --green: #4ade80;
+      --red: #f87171;
+      --font-mono: 'JetBrains Mono', 'Fira Code', ui-monospace, monospace;
+      --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: var(--accent-bright); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      background: rgba(7, 7, 16, 0.85);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 40px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 10;
+    }
+    .nav-brand {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .nav-brand .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
+    .nav-back {
+      font-size: 13px;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      transition: color 0.15s;
+    }
+    .nav-back:hover { color: var(--text-primary); text-decoration: none; }
+
+    .hero {
+      border-bottom: 1px solid var(--border);
+      padding: 64px 40px 56px;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+    .hero-label {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+    .hero h1 {
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+    .hero h1 span {
+      background: linear-gradient(90deg, var(--accent-bright), var(--cyan));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-meta {
+      font-size: 13px;
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+      margin-top: 20px;
+    }
+
+    .tldr {
+      max-width: 760px;
+      margin: 40px auto 0;
+      padding: 0 40px;
+    }
+    .tldr-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: 10px;
+      padding: 24px 28px;
+    }
+    .tldr-card .label {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+    .tldr-card ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .tldr-card li {
+      font-size: 14px;
+      color: var(--text-secondary);
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    .tldr-card li .icon { flex-shrink: 0; margin-top: 2px; }
+
+    .content {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 48px 40px 100px;
+      display: flex;
+      flex-direction: column;
+      gap: 48px;
+    }
+
+    .section-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .section-title .num {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--accent);
+      background: rgba(99,102,241,0.12);
+      border: 1px solid rgba(99,102,241,0.25);
+      border-radius: 4px;
+      padding: 2px 7px;
+    }
+
+    p { color: var(--text-secondary); font-size: 15px; margin-bottom: 12px; }
+    p:last-child { margin-bottom: 0; }
+
+    ul.policy-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 4px;
+    }
+    ul.policy-list li {
+      font-size: 14px;
+      color: var(--text-secondary);
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding-left: 4px;
+    }
+    ul.policy-list li::before {
+      content: '—';
+      color: var(--text-muted);
+      flex-shrink: 0;
+    }
+
+    .faq-item { margin-bottom: 24px; }
+    .faq-item:last-child { margin-bottom: 0; }
+    .faq-q {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 6px;
+    }
+
+    .info-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 18px 20px;
+      margin-top: 12px;
+      font-size: 14px;
+      color: var(--text-secondary);
+    }
+    .info-box strong { color: var(--text-primary); }
+
+    .divider { height: 1px; background: var(--border); }
+
+    .footer {
+      border-top: 1px solid var(--border);
+      padding: 40px;
+      max-width: 760px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .footer-text { font-size: 13px; color: var(--text-muted); }
+    .footer-contact { font-size: 13px; color: var(--text-secondary); font-family: var(--font-mono); }
+
+    @media (max-width: 600px) {
+      .nav  { padding: 0 20px; }
+      .hero { padding: 48px 20px 40px; }
+      .tldr { padding: 0 20px; }
+      .content { padding: 40px 20px 80px; }
+      .footer { padding: 32px 20px; flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-brand">
+      <div class="dot"></div>
+      YAMI Digital Lab
+    </div>
+    <a class="nav-back" href="https://www.yamidigital.com">
+      ← yamidigital.com
+    </a>
+  </nav>
+
+  <div class="hero">
+    <p class="hero-label">// support</p>
+    <h1>Pop Q<br><span>here if something's not working.</span></h1>
+    <p style="color: var(--text-secondary); font-size: 15px; margin-top: 16px;">
+      Quick answers below, or just email us directly — it's one person reading these, and we
+      actually reply.
+    </p>
+    <p class="hero-meta">Applies to: Pop Q iOS app</p>
+  </div>
+
+  <div class="tldr">
+    <div class="tldr-card">
+      <div class="label">Need help fast?</div>
+      <ul>
+        <li><span class="icon">✉️</span> Email <a href="mailto:dev@yamidigital.com">dev@yamidigital.com</a> — bugs, questions, anything</li>
+        <li><span class="icon">🔒</span> Wondering about data or privacy? See the <a href="https://www.yamidigital.com/privacy/popq">Privacy Policy</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="content">
+
+    <!-- 1. Getting started -->
+    <section>
+      <h2 class="section-title"><span class="num">01</span> Getting Started</h2>
+      <p>Pop Q is a set of question cards you read aloud to your kid — there's nothing to set up.</p>
+      <ul class="policy-list">
+        <li>Tap <strong>Next</strong> (or swipe left) for a new question</li>
+        <li>Swipe right to go back to the last question</li>
+        <li>Tap the age-band chip in the corner to switch between ages 3-5, 6-9, and 10-12</li>
+        <li>Tap <strong>Think deeper</strong> when a question lands and you want a follow-up prompt</li>
+      </ul>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- 2. FAQ -->
+    <section>
+      <h2 class="section-title"><span class="num">02</span> Frequently Asked Questions</h2>
+
+      <div class="faq-item">
+        <div class="faq-q">Is my child's data safe?</div>
+        <p>Yes — there's nothing to keep safe in the first place. Pop Q makes no network requests at all; everything stays on your device. See the <a href="https://www.yamidigital.com/privacy/popq">Privacy Policy</a> for the full picture.</p>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Why do questions repeat?</div>
+        <p>Pop Q avoids repeating a question you've just seen, but with a fixed set of questions per age band, you'll eventually cycle back around — that's expected, not a bug. We're actively adding more questions.</p>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">The app froze or won't open — what do I do?</div>
+        <p>Force-quit Pop Q (swipe up and hold, then swipe the app away) and reopen it. If that doesn't fix it, email us with your iPhone model and iOS version and we'll look into it.</p>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Can I suggest a question?</div>
+        <p>Yes, please — email us. Question ideas from real parents and kids are exactly what makes Pop Q better.</p>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">How do I change the age band?</div>
+        <p>Tap the age-band chip in the corner of the card and pick a different one — it takes effect immediately.</p>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- 3. Contact -->
+    <section>
+      <h2 class="section-title"><span class="num">03</span> Still Need Help?</h2>
+      <p>Email us anytime — we read every message.</p>
+      <div class="info-box">
+        <strong>YAMI Digital Lab LLC</strong><br>
+        <a href="mailto:dev@yamidigital.com">dev@yamidigital.com</a>
+      </div>
+    </section>
+
+  </div>
+
+  <footer class="footer">
+    <span class="footer-text">© 2026 YAMI Digital Lab LLC · Pop Q Support</span>
+    <span class="footer-contact">dev@yamidigital.com</span>
+  </footer>
+
+</body>
+</html>
