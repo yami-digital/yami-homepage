@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Support — Wowzy</title>
+  <meta name="description" content="Wowzy support: getting started, FAQ, and how to reach us." />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #070710;
+      --bg-card: #13132a;
+      --border: #252545;
+      --accent: #6366f1;
+      --accent-bright: #a5b4fc;
+      --cyan: #22d3ee;
+      --text-primary: #f1f5f9;
+      --text-secondary: #94a3b8;
+      --text-muted: #475569;
+      --green: #4ade80;
+      --red: #f87171;
+      --font-mono: 'JetBrains Mono', 'Fira Code', ui-monospace, monospace;
+      --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: var(--accent-bright); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      background: rgba(7, 7, 16, 0.85);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 40px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 10;
+    }
+    .nav-brand {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .nav-brand .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
+    .nav-back {
+      font-size: 13px;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      transition: color 0.15s;
+    }
+    .nav-back:hover { color: var(--text-primary); text-decoration: none; }
+
+    .hero {
+      border-bottom: 1px solid var(--border);
+      padding: 64px 40px 56px;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+    .hero-label {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+    .hero h1 {
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+    .hero h1 span {
+      background: linear-gradient(90deg, var(--accent-bright), var(--cyan));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-meta {
+      font-size: 13px;
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+      margin-top: 20px;
+    }
+
+    .tldr {
+      max-width: 760px;
+      margin: 40px auto 0;
+      padding: 0 40px;
+    }
+    .tldr-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: 10px;
+      padding: 24px 28px;
+    }
+    .tldr-card .label {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+    .tldr-card ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .tldr-card li {
+      font-size: 14px;
+      color: var(--text-secondary);
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    .tldr-card li .icon { flex-shrink: 0; margin-top: 2px; }
+
+    .content {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 48px 40px 100px;
+      display: flex;
+      flex-direction: column;
+      gap: 48px;
+    }
+
+    .section-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .section-title .num {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--accent);
+      background: rgba(99,102,241,0.12);
+      border: 1px solid rgba(99,102,241,0.25);
+      border-radius: 4px;
+      padding: 2px 7px;
+    }
+
+    p { color: var(--text-secondary); font-size: 15px; margin-bottom: 12px; }
+    p:last-child { margin-bottom: 0; }
+
+    ul.policy-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 4px;
+    }
+    ul.policy-list li {
+      font-size: 14px;
+      color: var(--text-secondary);
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding-left: 4px;
+    }
+    ul.policy-list li::before {
+      content: '—';
+      color: var(--text-muted);
+      flex-shrink: 0;
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+    .tag {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      padding: 4px 10px;
+      border-radius: 5px;
+      border: 1px solid;
+    }
+    .tag-green  { color: var(--green); border-color: rgba(74,222,128,0.25); background: rgba(74,222,128,0.06); }
+    .tag-red    { color: var(--red);   border-color: rgba(248,113,113,0.25); background: rgba(248,113,113,0.06); }
+    .tag-muted  { color: var(--text-muted); border-color: var(--border); background: var(--bg-card); }
+
+    .info-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 18px 20px;
+      margin-top: 12px;
+      font-size: 14px;
+      color: var(--text-secondary);
+    }
+    .info-box strong { color: var(--text-primary); }
+
+    .divider { height: 1px; background: var(--border); }
+
+    .footer {
+      border-top: 1px solid var(--border);
+      padding: 40px;
+      max-width: 760px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .footer-text { font-size: 13px; color: var(--text-muted); }
+    .footer-contact { font-size: 13px; color: var(--text-secondary); font-family: var(--font-mono); }
+
+    @media (max-width: 600px) {
+      .nav  { padding: 0 20px; }
+      .hero { padding: 48px 20px 40px; }
+      .tldr { padding: 0 20px; }
+      .content { padding: 40px 20px 80px; }
+      .footer { padding: 32px 20px; flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-brand">
+      <div class="dot"></div>
+      YAMI Digital Lab
+    </div>
+    <a class="nav-back" href="https://www.yamidigital.com">
+      ← yamidigital.com
+    </a>
+  </nav>
+
+  <div class="hero">
+    <p class="hero-label">// support</p>
+    <h1>Wowzy <span>Support</span></h1>
+    <p>Help with Wowzy: Family Rewards, the reward chart where kids earn points for wows, pick rewards, and get a fresh start each week.</p>
+    <p class="hero-meta">Applies to: Wowzy iOS app &nbsp;·&nbsp; Contact: <a href="mailto:dev@yamidigital.com?subject=Wowzy%20support">dev@yamidigital.com</a></p>
+  </div>
+
+  <div class="tldr">
+    <div class="tldr-card">
+      <div class="label">Need help?</div>
+      <ul>
+        <li><span class="icon">✉️</span> Email <a href="mailto:dev@yamidigital.com?subject=Wowzy%20support">dev@yamidigital.com</a>. We usually reply within 2 business days.</li>
+        <li><span class="icon">📱</span> Tell us your iPhone or iPad model, iOS version and Wowzy version (App Store &gt; Wowzy).</li>
+        <li><span class="icon">🔒</span> Please don't send your parent PIN. We never need it.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="content">
+
+    <section>
+      <h2 class="section-title"><span class="num">01</span> Getting Started</h2>
+      <ul class="policy-list">
+        <li>Open Wowzy and follow the short setup: pick what to track and add your kids' names. Starter lists are filled in, and you can edit everything later in the <strong>Plan</strong> tab.</li>
+        <li><strong>Wows</strong> earn points. <strong>Rewards</strong> spend them, today or ordered for a later day. A <strong>don't</strong> asks for one <strong>give-up</strong> from a list you agree on, and points are never taken away.</li>
+        <li>Limits (per day, per week or per weekday) reset on your family's start day: <strong>Plan &gt; Plan Settings</strong>.</li>
+      </ul>
+    </section>
+
+    <div class="divider"></div>
+
+    <section>
+      <h2 class="section-title"><span class="num">02</span> Parent PIN and Kid Mode</h2>
+      <ul class="policy-list">
+        <li><strong>Set a PIN:</strong> Plan &gt; Plan Settings (gear) &gt; Parent Lock &gt; Set Parent PIN. With a PIN, logging and edits ask for it; an unlock lasts 5 minutes. Face ID or Touch ID can unlock instead.</li>
+        <li><strong>Kid mode:</strong> on Home, tap your kid's name (top left) &gt; <em>Hand to &lt;name&gt;</em>. Kids can see their points, ask for a wow and claim rewards. To leave, tap the name (lock icon) and enter the PIN.</li>
+        <li><strong>Forgot the PIN?</strong> On the PIN pad, tap <em>Forgot PIN?</em> and confirm with your iPhone passcode, Face ID or Touch ID, then choose a new PIN.</li>
+      </ul>
+    </section>
+
+    <div class="divider"></div>
+
+    <section>
+      <h2 class="section-title"><span class="num">03</span> Backups and a New Phone</h2>
+      <ul class="policy-list">
+        <li>Your family's plan and history are stored only on your device. They are included in your normal iPhone backup (iCloud Backup or an encrypted backup on your computer).</li>
+        <li><strong>Moving to a new iPhone:</strong> restore the new phone from a backup of the old one, and Wowzy comes back with all its history.</li>
+        <li><strong>Deleting the app deletes its data.</strong> Make a backup first if you want to keep it.</li>
+      </ul>
+      <div class="info-box" style="margin-top: 16px;">
+        The parent PIN is kept in this device's Keychain and is not restored to another device; set it again after moving.
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <section>
+      <h2 class="section-title"><span class="num">04</span> Common Questions</h2>
+      <ul class="policy-list">
+        <li><strong>Why is an item greyed out?</strong> It reached its limit for today or this week, or it isn't available today. The card says why, and it comes back after the reset.</li>
+        <li><strong>I logged the wrong thing.</strong> Tap <em>Undo</em> right after, or open History from Home to undo any entry.</li>
+        <li><strong>Can two parents use it?</strong> Today Wowzy works on one device. Sharing between devices is on the way.</li>
+        <li><strong>Does Wowzy collect data?</strong> No. No accounts, no ads, no tracking, and no data collected. See the <a href="/privacy/wowzy/">privacy policy</a>.</li>
+      </ul>
+    </section>
+
+    <div class="divider"></div>
+
+    <section>
+      <h2 class="section-title"><span class="num">05</span> Contact</h2>
+      <p>Questions, ideas or a bug to report?</p>
+      <div class="info-box">
+        <strong>YAMI Digital Lab LLC</strong><br>
+        <a href="mailto:dev@yamidigital.com?subject=Wowzy%20support">dev@yamidigital.com</a>
+      </div>
+    </section>
+
+  </div>
+
+  <footer class="footer">
+    <span class="footer-text">© 2026 YAMI Digital Lab LLC · Wowzy Support</span>
+    <span class="footer-contact">dev@yamidigital.com</span>
+  </footer>
+
+</body>
+</html>
